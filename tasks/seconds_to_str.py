@@ -16,4 +16,15 @@ def seconds_to_str(seconds: int) -> str:
         >> seconds_to_str(93600)
         01d02h00m00s
     """
-    raise NotImplementedError
+
+    time_parts = []
+
+    for divisor, time  in [(24 * 3600, 'd'), (3600, 'h'), (60, 'm'), (1, 's')]:
+        value, seconds = divmod(seconds, divisor)
+        if value or time_parts:
+            time_parts.append(f'{value:02}{time}')
+
+    if not time_parts:
+        return "00s"
+
+    return ''.join(time_parts)

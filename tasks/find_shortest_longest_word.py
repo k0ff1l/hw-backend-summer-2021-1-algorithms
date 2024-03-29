@@ -14,4 +14,10 @@ def find_shortest_longest_word(text: str) -> tuple[str, str] | tuple[None, None]
         >> find_shortest_longest_word(" \n\t ")
         (None, None)
     """
-    raise NotImplementedError
+    if not text.strip():
+        return None, None
+    words = text.split()
+    shortest = min(words, key=len)
+    longest = max(words, key=len)
+    return shortest, longest
+
