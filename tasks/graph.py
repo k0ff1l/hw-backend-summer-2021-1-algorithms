@@ -37,7 +37,6 @@ class Graph:
         visited = set()
         while stack:
             i = stack.pop()
-            # write dfs
             if i not in visited:
                 visited.add(i)
                 ans.append(i)
