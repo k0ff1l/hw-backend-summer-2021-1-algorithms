@@ -17,5 +17,3 @@ def is_prime(number: int) -> bool:
         if number % i == 0:
             return False
     return True
-
-#blabla pipeline test after i have enabled it

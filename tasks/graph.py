@@ -32,7 +32,25 @@ class Graph:
         self._root = root
 
     def dfs(self) -> list[Node]:
-        raise NotImplementedError
+        ans = []
+        stack = [self._root]
+        visited = set()
+        while stack:
+            i = stack.pop()
+            # write dfs
+            if i not in visited:
+                visited.add(i)
+                ans.append(i)
+                stack.extend(i.outbound[::-1])
+        return ans
 
     def bfs(self) -> list[Node]:
-        raise NotImplementedError
+        ans = []
+        stack = [self._root]
+        visited = set()
+        for i in stack:
+            if i not in visited:
+                visited.add(i)
+                ans.append(i)
+                stack.extend(i.outbound)
+        return ans
